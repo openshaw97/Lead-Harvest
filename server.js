@@ -1,4 +1,5 @@
 const express = require('express');
+const compression = require('compression');
 const axios = require('axios');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
@@ -53,6 +54,7 @@ const STRIPE_PRICES = {
   enterprise: process.env.STRIPE_PRICE_ENTERPRISE || ''
 };
 
+app.use(compression()); // gzip compression for better performance and SEO
 app.use('/api/stripe/webhook', express.raw({ type: 'application/json' }));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));

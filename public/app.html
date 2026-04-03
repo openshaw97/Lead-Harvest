@@ -772,8 +772,8 @@ function renderTable() {
     const phoneH = b.phone
       ? (phoneRevealed
           ? `<a class="phone-link" href="tel:${esc(b.phone)}">${esc(b.phone)}</a>`
-          : `<span class="phone-blur" onclick="promptExport()" title="Export to reveal phone numbers">${esc(b.phone).replace(/./g,'•').slice(0,-4) + b.phone.slice(-4)}</span>`)
-      : `<span class="no-phone">—</span>`;
+          : `<span style="font-size:0.78rem;color:var(--t3);cursor:pointer" onclick="promptExport()" title="Export to reveal phone number">🔒 Revealed on export</span>`)
+      : `<span style="font-size:0.78rem;color:var(--t3);cursor:pointer" onclick="promptExport()" title="Export to reveal phone number">🔒 Revealed on export</span>`;
 
     const webH = b.website
       ? `<a class="web-link" href="${esc(b.website)}" target="_blank">${esc(b.website.replace(/https?:\/\/(www\.)?/, '').split('/')[0])}</a>`
